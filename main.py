@@ -103,7 +103,6 @@ get_stock_info("AAPL")
 import openrouteservice
 
 def get_coordinates(client, city_name):
-    """Отримує координати міста (довгота, широта) за назвою"""
     try:
         geocode = client.pelias_search(text=city_name)
         coords = geocode['features'][0]['geometry']['coordinates']
@@ -117,7 +116,6 @@ def get_route_between_cities(api_key, from_city, to_city):
 
     client = openrouteservice.Client(key=api_key)
 
-    # Отримати координати міст
     from_coords = get_coordinates(client, from_city)
     to_coords = get_coordinates(client, to_city)
 
